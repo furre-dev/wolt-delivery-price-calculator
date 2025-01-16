@@ -47,7 +47,7 @@ The `venue_slug` can only be one of the following values:
 - `home-assignment-venue-berlin`
 - `home-assignment-venue-tokyo`
 
-<span style="opacity: 40%">**PS:** The venue slug is used to determine the venue, so please make sure it matches one of the available options.</span>
+**PS:** _The venue slug is used to determine the venue, so please make sure it matches one of the available options._
 
 ## Some tools & dependencies
 
