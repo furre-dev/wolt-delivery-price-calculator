@@ -9,7 +9,10 @@ import java.math.RoundingMode
 fun calculateSurcharge(orderMinimumNoSurcharge: Int, cartValue: Int): Int =
     if (cartValue > orderMinimumNoSurcharge) 0 else orderMinimumNoSurcharge - cartValue
 
-fun findDeliveryDistanceRange(distance: Int, venueDeliveryDistanceRanges: List<VenueDistanceRange>): VenueDistanceRange {
+fun findDeliveryDistanceRange(
+    distance: Int,
+    venueDeliveryDistanceRanges: List<VenueDistanceRange>
+): VenueDistanceRange {
     // This will take the distance, divide it by 1000 so we get the distance in kilometers.
     // Then it will only keep the first decimal. I want to avoid rounding for misleading information.
 
@@ -19,10 +22,11 @@ fun findDeliveryDistanceRange(distance: Int, venueDeliveryDistanceRanges: List<V
         ?: throw ResponseStatusException(
             HttpStatus.BAD_REQUEST,
             "The specified distance of $distanceInKm km falls outside the delivery range. " +
-                    "Please ensure your location is within the available delivery zones.")
+                    "Please ensure your location is within the available delivery zones."
+        )
 }
 
-fun feeMultipliedBasedOnDistance(b: Int, distance: Int): Int{
+fun feeMultipliedBasedOnDistance(b: Int, distance: Int): Int {
     val distanceMultiplier = b * distance / 10
     return distanceMultiplier
 }

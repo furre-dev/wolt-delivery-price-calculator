@@ -192,3 +192,24 @@ curl -X POST http://localhost:8080/api/v1/delivery-order-price \
 
 
 - [**Factory Design Pattern in Kotlin**](https://youtu.be/1VWYP3S12Do?si=aSFPf7awRx7_OPH3)
+
+---
+
+## What I have asked ChatGPT?
+
+- The difficulty of Kotlin for a developer with good TypeScript & Java knowledge.
+
+
+- Kotlin Design Patterns & Best Practices
+
+
+- The mindset for optimal Kotlin code
+
+
+- Difference between class and data class.
+
+
+- How to fetch data from an external API endpoint using Spring boot.
+
+
+- Minor questions about Kotlin/Java tools like BigDecimal
