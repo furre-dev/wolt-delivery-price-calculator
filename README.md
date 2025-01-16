@@ -20,10 +20,10 @@ This project is a **Spring Boot** backend service, designed to provide a pricing
 
 ```json
 {
-  "cart_value": "Int", 
-  "user_lat": "Double", 
-  "user_lon": "Double", 
-  "venue_slug": "String"
+  "cart_value": 5200,
+  "user_lat": 59.34829878585902,
+  "user_lon": 18.030581581937327,
+  "venue_slug": "home-assignment-venue-stockholm"
 }
 ```
 The `venue_slug` can only be one of the following values:
@@ -38,12 +38,12 @@ The `venue_slug` can only be one of the following values:
 #### _And responds with:_
 ```json
 {
-  "total_price": "Int",
-  "small_order_surcharge": "Int",
-  "cart_value": "Int",
+  "total_price": 10900,
+  "small_order_surcharge": 4800,
+  "cart_value": 5200,
   "delivery": {
-    "fee": "Int",
-    "distance": "Int"
+    "fee": 900,
+    "distance": 186
   }
 }
 ```
