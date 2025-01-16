@@ -26,14 +26,6 @@ This project is a **Spring Boot** backend service, designed to provide a pricing
   "venue_slug": "home-assignment-venue-stockholm"
 }
 ```
-The `venue_slug` can only be one of the following values:
-
-- `home-assignment-venue-helsinki`
-- `home-assignment-venue-stockholm`
-- `home-assignment-venue-berlin`
-- `home-assignment-venue-tokyo`
-
-<span style="opacity: 40%">**PS:** The venue slug is used to determine the venue, so please make sure it matches one of the available options.</span>
 
 #### _And responds with:_
 ```json
@@ -47,6 +39,15 @@ The `venue_slug` can only be one of the following values:
   }
 }
 ```
+
+The `venue_slug` can only be one of the following values:
+
+- `home-assignment-venue-helsinki`
+- `home-assignment-venue-stockholm`
+- `home-assignment-venue-berlin`
+- `home-assignment-venue-tokyo`
+
+<span style="opacity: 40%">**PS:** The venue slug is used to determine the venue, so please make sure it matches one of the available options.</span>
 
 ## Some tools & dependencies
 
