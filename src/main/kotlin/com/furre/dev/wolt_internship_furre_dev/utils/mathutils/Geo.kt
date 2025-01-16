@@ -1,9 +1,19 @@
+package com.furre.dev.wolt_internship_furre_dev.utils.mathutils
+
 import kotlin.math.roundToInt
 
 class Geo(private val lat: Double, private val lon: Double) {
 
+
     companion object {
         const val earthRadiusKm: Double = 6372.8
+
+        const val minLat: Double = -90.0
+        const val maxLat: Double = 90.0
+
+        const val minLong: Double = -180.0
+        const val maxLong: Double = 180.0
+
     }
 
     /**
