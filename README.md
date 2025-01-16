@@ -49,6 +49,108 @@ The `venue_slug` can only be one of the following values:
 
 **PS:** _The venue slug is used to determine the venue, so please make sure it matches one of the available options._
 
+---
+
+## How to Run Locally
+
+To run the Kotlin Spring Boot project locally, follow these steps:
+
+## 1. Install Java
+Ensure that Java is installed on your system because it is required to run the Spring Boot application. You can verify this by running:
+
+```bash
+java -version
+```
+
+If Java is not installed, you can download it from the official Oracle website or install it via a package manager based on your OS.
+
+## 2. Install Gradle
+If Gradle is not installed on your system, follow the appropriate steps to install it:
+
+### macOS:
+If you have Homebrew installed, you can install Gradle by running:
+
+```bash
+brew install gradle
+```
+
+### Linux:
+**Ubuntu/Debian:**
+
+```bash
+sudo apt update
+```
+```bash
+sudo apt install gradle
+```
+
+**Fedora:**
+
+```bash
+sudo dnf install gradle
+```
+
+### Windows:
+Download and install Gradle from the official website.  
+Alternatively, if you have Chocolatey installed, you can run:
+
+```bash
+choco install gradle
+```
+
+## 3. Open the Project in IntelliJ IDEA
+Launch **IntelliJ IDEA** and open your Kotlin Spring Boot project.  
+IntelliJ IDEA will automatically recognize Gradle as the build system if the project has a `build.gradle` or `settings.gradle` file.
+
+## 4. Sync Gradle Dependencies
+Once the project is opened in IntelliJ IDEA, the IDE should prompt you to sync the Gradle dependencies. If it doesn’t, you can trigger the sync manually:
+
+- Click on **"View" > "Tool Windows" > "Gradle"**.
+- In the **Gradle** window, click the **"Refresh"** button to sync your dependencies.
+
+This will download all the necessary dependencies specified in the `build.gradle` file.
+
+## 5. Build the Project
+To build the project using Gradle, you can use the following command in your terminal (ensure you're in the project directory):
+
+```bash
+gradle build
+```
+
+This command will compile the code and create an executable JAR file.
+
+## 6. Run the Spring Boot Application
+Once the build is complete, you can run the Spring Boot application with the following command:
+
+```bash
+gradle bootRun
+```
+
+This will start the Spring Boot application locally. You should see log output in the terminal indicating that the application is running, and it will be accessible at `http://localhost:8080` by default (unless configured otherwise).
+
+## 7. Run the Application from IntelliJ IDEA
+Alternatively, you can run the Spring Boot application directly from IntelliJ IDEA:
+
+- Click the **green Run** button in the top right corner of IntelliJ IDEA.
+- Select **"Run 'BootRun'"** or **"Run 'Application'"** if the configuration is set up.
+
+This will execute the application and show the output in the **Run** window of IntelliJ.
+
+## 8. Verify the Application is Running
+Once the application starts, you can open your browser and navigate to `http://localhost:8080` to verify that your Spring Boot application is running locally.
+
+## 9. Test the Endpoint
+You can now test the endpoint using a tool like Postman or cURL. For example:
+
+```bash 
+curl -X POST http://localhost:8080/api/v1/delivery-order-price \
+    -H "Content-Type: application/json" \
+    -d '{"cart_value": 5200, "user_lat": 59.34829878585902, "user_lon": 18.030581581937327, "venue_slug": "home-assignment-venue-stockholm"}'
+
+```
+
+---
+
 ## Some tools & dependencies
 
 - **Input Validation** using `spring-boot-starter-validation`:
@@ -62,50 +164,7 @@ The `venue_slug` can only be one of the following values:
 - **Distance Calculation** using the **Haversine formula**:
   The Haversine formula is applied to compute the great-circle distance between the user's location and the venue, based on their respective latitude and longitude values. This is used to calculate the delivery distance and associated delivery fee.
 
-## How to Run Locally
-
-To run the Kotlin Spring Boot project locally, open the project in your favorite IDE
-</br>or follow these steps:
-
-### 1. Install dependencies
-Ensure you have Java and Maven installed on your machine. You can install Maven using the following command:
-
-```bash 
-brew install maven
-```
-
-### 2. Build the project
-Run the following Maven command to build the project:
-
-```bash 
-brew install maven
-```
-
-### 2. Build the project
-Run the following Maven command to build the project:
-
-```bash 
-mvn clean install
-```
-
-### 3. Run the Spring Boot Application
-Start the application by running the following command:
-
-```bash 
-mvn spring-boot:run
-```
-
-This will start the Spring Boot application locally, typically on port 8080 by default.
-
-### 4. Test the Endpoint
-You can now test the endpoint using a tool like Postman or cURL. For example:
-
-```bash 
-curl -X POST http://localhost:8080/api/v1/delivery-order-price \
-    -H "Content-Type: application/json" \
-    -d '{"cart_value": 5200, "user_lat": 59.34829878585902, "user_lon": 18.030581581937327, "venue_slug": "home-assignment-venue-stockholm"}'
-
-```
+---
 
 ## Resources Used
 
@@ -122,6 +181,8 @@ curl -X POST http://localhost:8080/api/v1/delivery-order-price \
 
 
 - **Enabling ResponseStatusException to show error reason:** [Stack Overflow](https://stackoverflow.com/questions/62561211/spring-responsestatusexception-does-not-return-reason)
+
+---
 
 ## Videos watched
 - [**Kotlin Design Patterns & Best Practices**](https://www.youtube.com/watch?v=G6FY8jHiDVY)
