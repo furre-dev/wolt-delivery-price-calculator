@@ -1,8 +1,8 @@
 package com.furre.dev.wolt_internship_furre_dev.controllers
 
-import com.furre.dev.wolt_internship_furre_dev.models.Venue
 import com.furre.dev.wolt_internship_furre_dev.models.delivery.DeliveryOrder
-import com.furre.dev.wolt_internship_furre_dev.models.delivery.DeliveryPrice
+import com.furre.dev.wolt_internship_furre_dev.models.delivery.OrderPrice
+import com.furre.dev.wolt_internship_furre_dev.services.DeliveryService
 import com.furre.dev.wolt_internship_furre_dev.utils.createFieldErrorMessage
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
@@ -20,13 +20,14 @@ import org.springframework.web.server.ResponseStatusException
 
 @RestController
 @RequestMapping("/api/v1/delivery-order-price")
-class DeliveryOrderPriceController {
+class DeliveryOrderPriceController(private val deliveryService: DeliveryService) {
 
+    //Enabling POST method to our endpoint
     @PostMapping
     fun createDeliveryOrder(
         @Valid @RequestBody newDeliveryOrderRequest: DeliveryOrder,
         bindingResult: BindingResult
-    ): DeliveryPrice {
+    ): OrderPrice {
 
         //If the POST request body fields don't pass the validation, throw error with explanatory message.
         if (bindingResult.hasErrors()) {
@@ -34,22 +35,9 @@ class DeliveryOrderPriceController {
             throw ResponseStatusException(HttpStatus.BAD_REQUEST, errorMessages)
         }
 
-        //1. Since we have the cart value and the location from our POST request body, we now try to fetch and handle
-        // the correct Venue information.
-        val venue = Venue(
-            newDeliveryOrderRequest
-        )
+        //If no errors, respond with the DeliveryPrice response returned from the calculateDeliveryPrice function.
+        return deliveryService.calculateOrderPrice(newDeliveryOrderRequest)
 
-        //2. This is the final step, where we combine the deliveryOrder information with our Venue and its calculations.
-        val deliveryPrice = DeliveryPrice(
-            newDeliveryOrderRequest.cart_value + venue.surchargeFee + venue.deliveryFee,
-            venue.surchargeFee,
-            newDeliveryOrderRequest.cart_value,
-            venue.deliveryFeeAndDistance
-        )
-
-        //3. Now we respond to the POST request with the delivery price information, with all of its necessary values.
-        return deliveryPrice
     }
 }
 

@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class WoltInternshipFurreDevApplication
 
 fun main(args: Array<String>) {
-	runApplication<WoltInternshipFurreDevApplication>(*args)
+    runApplication<WoltInternshipFurreDevApplication>(*args)
 }

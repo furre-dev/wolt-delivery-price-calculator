@@ -38,14 +38,14 @@ class Venue(
         venueDeliveryPrices.distance_ranges
     )
 
-    //These are not private because we need access outside of this Class
-    val deliveryFee = deliveryFee(
+    private val deliveryFee = deliveryFee(
         userToVenueDistanceInMeters,
         venueDeliveryPrices.base_price,
         matchingDeliveryDistanceRage.a,
         matchingDeliveryDistanceRage.b
     )
 
+    //These are not private because we need access outside of this Class
     val surchargeFee = calculateSurcharge(
         minimumCartValueForNoSurcharge,
         newDeliveryOrderRequest.cart_value
@@ -55,4 +55,21 @@ class Venue(
         deliveryFee,
         userToVenueDistanceInMeters
     )
+
+    val totalPrice: Int =
+        newDeliveryOrderRequest.cart_value + surchargeFee + deliveryFee
+
+    val userHasFreeOrderVoucher: Boolean =
+        /*
+        return True if cart_value is 0, else return False
+        I'm aware that this is not enough to check if user has a voucher, but I just wanted to highlight this edge-case
+        where we normally would just add the surcharge and respond with the minimum order price as the total_price.
+
+        IMO the ideal way to implement vouchers in this case would be to add an optional 'user_discount_in_percent' field to our
+        API POST method body. Then we could just calculate the total_price, add the discount and return the discounted price.
+
+        This variable exists because I just wanted to highlight this edge-case without changing or adding too much to the
+        base instructions.
+        */
+        newDeliveryOrderRequest.cart_value == 0;
 }

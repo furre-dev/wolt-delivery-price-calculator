@@ -19,6 +19,7 @@ data class DeliveryOrder @JsonCreator constructor(
     @JsonProperty(value = "venue_slug", required = true)
     val venue_slug: String,
 
+    @field:Min(0)
     @JsonProperty(value = "cart_value", required = true)
     val cart_value: Int,
 
