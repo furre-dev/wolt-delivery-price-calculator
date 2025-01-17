@@ -17,11 +17,42 @@ class VenueExtensionsTests {
         /*
        data from home-assignment-venue-stockholm
        "distance_ranges": [
-           {"min":0,"max":500,"a":0,"b":0.0,"flag":null},
-           {"min":500,"max":1000,"a":1000,"b":0.0,"flag":null},
-           {"min":1000,"max":1500,"a":2000,"b":0.0,"flag":null},
-           {"min":1500,"max":2000,"a":2000,"b":10.0,"flag":null}
-       ]
+          {
+            "min": 0,
+            "max": 500,
+            "a": 0,
+            "b": 0,
+            "flag": null
+          },
+          {
+            "min": 500,
+            "max": 1000,
+            "a": 1000,
+            "b": 0,
+            "flag": null
+          },
+          {
+            "min": 1000,
+            "max": 1500,
+            "a": 2000,
+            "b": 0,
+            "flag": null
+          },
+          {
+            "min": 1500,
+            "max": 2000,
+            "a": 2000,
+            "b": 10,
+            "flag": null
+          },
+          {
+            "min": 2000,
+            "max": 0,
+            "a": 0,
+            "b": 0,
+            "flag": null
+          }
+        ],
        */
 
         val distanceRanges: List<VenueDistanceRange> = listOf(
