@@ -15,7 +15,7 @@ class VenueExtensionsTests {
     @Test
     fun findDeliveryDistanceRangeTest() {
         /*
-       data from home-assignment-venue-stockholm
+       data from home-assignment-venue-stockholm @ 22.01 2025-01-17
        "distance_ranges": [
           {
             "min": 0,
@@ -70,8 +70,7 @@ class VenueExtensionsTests {
 
         assertEquals(matchDistanceRange, distanceRanges[2])
     }
-
-
+    
     @Test
     fun feeMultipliedBasedOnDistanceTest() {
         /*
@@ -86,13 +85,30 @@ class VenueExtensionsTests {
 
     @Test
     fun deliveryFeeTest() {
-        val totalDeliveryFee = deliveryFee(
-            800,
-            5000,
-            1000,
-            1
+        /*
+        * Taken from an example in the documentation:
+        * For example, given the above distance_ranges example, if the delivery distance were 600 meters and the base_price
+        * were 199, the delivery fee would be 359 (base_price + a + b * distance / 10 == 199 + 100 + 1 * 600 / 10 == 359).
+        * Another example: if the delivery distance were 1000 meters or more, the delivery would not be possible.
+        * */
+        val distance = 600
+        val basePrice = 199
+        /* Taken from the distance_ranges in the same example*/
+        val distanceRanges: List<VenueDistanceRange> = listOf(
+            VenueDistanceRange(0, 500, 0, 0, null),
+            VenueDistanceRange(500, 1000, 100, 1, null),
+            VenueDistanceRange(1000, 0, 0, 0, null),
         )
 
-        assertEquals(totalDeliveryFee, 6080)
+        val matchRange = findDeliveryDistanceRange(distance, distanceRanges)
+
+        val totalDeliveryFee = deliveryFee(
+            distance,
+            basePrice,
+            matchRange.a,
+            matchRange.b
+        )
+
+        assertEquals(totalDeliveryFee, 359)
     }
 }
