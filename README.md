@@ -164,6 +164,10 @@ curl -X POST http://localhost:8080/api/v1/delivery-order-price \
 - **Distance Calculation** using the **Haversine formula**:
   The Haversine formula is applied to compute the great-circle distance between the user's location and the venue, based on their respective latitude and longitude values. This is used to calculate the delivery distance and associated delivery fee.
 
+
+- **Unit testing** using **JUnit 5**:
+I have implemented unit tests based on the example calculations provided in the official Wolt documentation. These tests focus on validating various functionalities of the application but do not assess its resilience or edge-case behavior. Additional comprehensive testing is required before the application is production-ready.
+
 ---
 
 ## Resources Used
