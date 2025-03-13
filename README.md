@@ -1,15 +1,5 @@
 # Project Overview
 
-## Who am I?
-
-Hi, I’m Furkan, a 24-year-old Fullstack Developer based in Stockholm. I started with Frontend development in school and later taught myself Backend development. I’m experienced with TypeScript, React, Next.js, and Node.js, and also enjoy working with Java or Python for backend tasks.
-
-After recently graduating, I completed a six-month internship, which led to a full-time frontend developer role and gave me valuable hands-on experience in a professional setting.
-
-Now, I’m excited to dive into Kotlin. While I’ve worked mainly with Java and Python on the backend, I find Kotlin enjoyable and believe my skills will transfer easily. I’m passionate about learning and contributing to a team that values growth and efficiency.
-
----
-
 ## Project Details
 
 This project is a **Spring Boot** backend service, designed to provide a pricing model for a food delivery system. The service exposes a POST endpoint `/api/v1/delivery-order-price`, which calculates the total price for a delivery order based on several parameters, including the cart value, user’s location, and venue information.
